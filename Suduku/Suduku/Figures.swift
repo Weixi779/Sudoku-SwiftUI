@@ -28,15 +28,8 @@ struct Figures: Identifiable, Codable {
     var aimValue: Int
     var writeValue: Int
 
-    var fontColor: FontColor {
-        get {
-            if writeValue != 0 {
-                return .known
-            } else {
-                return aimValue == writeValue ? .correct : .wrong
-            }
-        }
-    }
+    var fontColor: FontColor = .known
+    
     
     var backgroundColor: BackgroundColor = .blank
     
@@ -51,6 +44,12 @@ struct Figures: Identifiable, Codable {
     mutating func setWriteValue(_ writeValue: Int) { self.writeValue = writeValue }
     
     mutating func setAimValue(_ aimValue: Int) { self.aimValue = aimValue }
+    
+    mutating func fontKnown() { self.fontColor = .known }
+    
+    mutating func fontCorrect() { self.fontColor = .correct }
+    
+    mutating func fontWrong() { self.fontColor = .wrong }
     
     mutating func colorBlank() { self.backgroundColor = .blank }
     

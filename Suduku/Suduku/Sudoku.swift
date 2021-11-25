@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct Sudoku: Codable {
     
     var board: [[Figures]]
