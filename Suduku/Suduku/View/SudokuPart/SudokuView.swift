@@ -97,6 +97,8 @@ struct SudokuView: View {
     @ObservedObject var viewModel: SudokuViewModel
     
     var body: some View {
-        
+        VStack {
+            
+        }
     }
 }

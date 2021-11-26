@@ -29,6 +29,10 @@ class SudokuViewModel: ObservableObject {
 
     }
     
+    func getBoard() -> [[Figures]] {
+        return boardController.getBoard()
+    }
+    
     func restartSudoku() {
         boardController.reinitToBlank()
     }

@@ -10,8 +10,21 @@ import Foundation
 class BoardController {
     var board: Board = Board()
     var lastSelected: Figures?
+    var blockDivide: [[(Int,Int)]]
     
-    init() { }
+    init() {
+        blockDivide = [[(Int,Int)]]()
+        let arr = [[0,1,2], [3,4,5], [6,7,8]]
+        for time in 0..<9 {
+            var temp = [(Int,Int)]()
+            for i in arr[time/3] {
+                for j in arr[time%3] {
+                    temp.append((i,j))
+                }
+            }
+            blockDivide.append(temp)
+        }
+    }
     
     func reinitToBlank() {
         board = Board()
@@ -26,6 +39,15 @@ class BoardController {
                 board.board[x][y].setWriteValue(filledBoard[x][y])
             }
         }
+    }
+    
+    func getBoard() -> [[Figures]] {
+        return board.board
+    }
+    
+    
+    func getDiviedBlockBoard() -> [[(Int,Int)]] {
+        return blockDivide
     }
     
     /*
@@ -45,12 +67,9 @@ class BoardController {
             board.board[x][index].colorHighLight()
             board.board[index][y].colorHighLight()
         }
-        let arr = [[0,1,2], [3,4,5], [6,7,8]]
         let block = (x/3)*3 + (y/3)
-        for i in arr[block/3] {
-            for j in arr[block%3] {
-                board.board[i][j].colorHighLight()
-            }
+        blockDivide[block].forEach{ (x,y) in
+            board.board[x][y].colorHighLight()
         }
         // Part3
         let writedValue = figures.writeValue

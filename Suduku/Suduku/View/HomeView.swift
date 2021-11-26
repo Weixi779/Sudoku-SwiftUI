@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = SudokuViewModel()
-    @StateObject var viewModel = SudokuViewModel()
     var body: some View {
         VStack {
             SudokuView(viewModel: viewModel)
             //FunctionButtonView().environmentObject(viewModel)
             //FilNumberlListView().environmentObject(viewModel)
         }
+
     }
 }
 
