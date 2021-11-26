@@ -7,8 +7,10 @@
 
 import Foundation
 
-class BoardController {
-    var board: Board = Board()
+class BoardController: ObservableObject {
+    var board: Board = Board() {
+        willSet { self.objectWillChange.send() }
+    }
     var lastSelected: Figures?
     var blockDivide: [[(Int,Int)]]
     
@@ -57,12 +59,11 @@ class BoardController {
         3. 要是选择不为空，选上其他同值块
         4. 更新选择
      */
-    func selectAction(_ figures: inout Figures) {
+    func selectAction(_ x: Int,_ y: Int) {
         // Part1
         boardInitBlank()
         // Part2
-        let x = figures.x
-        let y = figures.y
+        let figures = board.board[x][y]
         for index in 0..<9 {
             board.board[x][index].colorHighLight()
             board.board[index][y].colorHighLight()

@@ -11,7 +11,7 @@ struct FilNumberlListView: View {
     var body: some View {
         HStack (spacing: 5) {
             ForEach (1..<10) { number in
-                FillNumberCellView(enterNumber: number)
+//                FillNumberCellView(enterNumber: number)
             }
         }
     }

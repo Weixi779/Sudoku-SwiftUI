@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SudokuBlockView: View {
+struct SudokuBlockView1: View {
     
     var numbers: [Figures]
     

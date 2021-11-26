@@ -12,12 +12,10 @@ struct SudokuRowView: View {
     var body: some View {
         HStack(spacing: 0) {
             ForEach (numbers) { number in
-                SudokuCellView(figures: number)
-                    .clipped()
+//                SudokuCellView(figures: number)
+//                    .clipped()
             }
         }
-        
-
     }
 }
 

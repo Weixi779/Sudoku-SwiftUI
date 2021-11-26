@@ -27,6 +27,7 @@
 		A28265A8274F8B16003F0F99 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28265A7274F8B15003F0F99 /* Board.swift */; };
 		A28265AB27506D48003F0F99 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28265AA27506D48003F0F99 /* BoardController.swift */; };
 		A28265AD27507E65003F0F99 /* SudokuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28265AC27507E65003F0F99 /* SudokuController.swift */; };
+		A28265AF2750A308003F0F99 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28265AE2750A308003F0F99 /* ColorController.swift */; };
 		A2C44D75274F74CC00D37645 /* Figures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C44D74274F74CC00D37645 /* Figures.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		A28265A7274F8B15003F0F99 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		A28265AA27506D48003F0F99 /* BoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardController.swift; sourceTree = "<group>"; };
 		A28265AC27507E65003F0F99 /* SudokuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuController.swift; sourceTree = "<group>"; };
+		A28265AE2750A308003F0F99 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
 		A2C44D74274F74CC00D37645 /* Figures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				A28265A927506CEC003F0F99 /* BoardPart */,
 				605E482C26A53E2E009968A9 /* SudokuViewModel.swift */,
 				A28265AC27507E65003F0F99 /* SudokuController.swift */,
+				A28265AE2750A308003F0F99 /* ColorController.swift */,
 				605C8F8926CA2F14002F2146 /* DLX.swift */,
 				605E481F26A53DE0009968A9 /* Assets.xcassets */,
 				605E482426A53DE0009968A9 /* Info.plist */,
@@ -232,6 +235,7 @@
 				605C8F8A26CA2F14002F2146 /* DLX.swift in Sources */,
 				605E483326A5881D009968A9 /* SudokuCellView.swift in Sources */,
 				605E483126A586B1009968A9 /* SudokuRowView.swift in Sources */,
+				A28265AF2750A308003F0F99 /* ColorController.swift in Sources */,
 				605E481C26A53DDF009968A9 /* SudukuApp.swift in Sources */,
 				60726F4726D20D2800A7C338 /* FunctionButtonView.swift in Sources */,
 				602398D326CBA40A00516C11 /* FillNumberCellView.swift in Sources */,

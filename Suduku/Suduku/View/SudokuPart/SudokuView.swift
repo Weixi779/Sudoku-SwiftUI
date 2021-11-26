@@ -98,7 +98,81 @@ struct SudokuView: View {
     
     var body: some View {
         VStack {
-            
+            Button("init") {
+                DispatchQueue.main.async {
+                    viewModel.initSudoku()
+                }
+            }
+            VStack(spacing: 0) {
+                ForEach(0..<3) { x in
+                    HStack(spacing: 0) {
+                        ForEach(0..<3) { y in
+                            SudokuBlockView(blockNumber: x*3+y).environmentObject(viewModel)
+                        }
+                    }
+                }
+            }
+            .border(Color.black, width: 1.5)
+            .padding()
         }
+    }
+}
+struct SudokuBlockView: View {
+    @EnvironmentObject var viewModel: SudokuViewModel
+    let blockNumber: Int
+    var body: some View{
+        let block = viewModel.boardController.blockDivide
+        return VStack(spacing: 0) {
+            ForEach(0..<3) { x in
+                HStack(spacing: 0) {
+                    ForEach(0..<3) { y in
+                        SudokuCellView(
+                            x: block[blockNumber][x*3+y].0,
+                            y: block[blockNumber][x*3+y].1
+                        )
+                    }
+                }
+            }
+        }.border(Color.black.opacity(0.3), width: 1)
+        
+    }
+}
+
+
+struct SudokuCellView: View {
+    @EnvironmentObject var viewModel: SudokuViewModel
+    let x: Int
+    let y: Int
+
+    var body: some View {
+        let controller = viewModel.boardController
+        print("fontView")
+        return VStack {
+            fontView
+        }
+        .border(Color.black.opacity(0.1), width: 1)
+        .onTapGesture {
+            controller.selectAction(x, y)
+            print("\(controller.board.board[x][y].writeValue)")
+        }
+    }
+    
+    var fontView: some View {
+        let figures = viewModel.boardController.getBoard()[x][y]
+        var fontColor: Color
+        switch figures.fontColor {
+        case .known:
+            fontColor = Color(.black)
+        case .correct:
+            fontColor = Color(.blue)
+        case .wrong:
+            fontColor = Color(.red)
+        }
+        
+        return Text(viewModel.boardController.board.board[x][y].writeValue == 0 ? "0" : "\(viewModel.boardController.board.board[x][y].writeValue)")
+            .foregroundColor(fontColor)
+            .font(.system(size: 33, weight: .light, design: .default))
+            .frame(width: 40, height: 40)
+            .contentShape(Rectangle())
     }
 }

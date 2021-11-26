@@ -14,8 +14,10 @@ enum OperationState {
 
 class SudokuViewModel: ObservableObject {
     @Published var boardController = BoardController()
+    @Published var themeColor = ThemeColor()
     
     func initSudoku() {
+        print("start init")
         boardController.reinitToBlank()
         let board = [[Int]](repeating: [Int](repeating: 0, count: 9), count: 9)
         // TODO: DLXController
@@ -23,8 +25,12 @@ class SudokuViewModel: ObservableObject {
         dlx.initStartSudoku(11)
         
         let startBoard = dlx.export()
+        print("startBoard is over")
+        print(startBoard)
         dlx.solve()
         let finalBoard = dlx.export()
+        print("finalBoard is over")
+        print(finalBoard)
         boardController.initBoardAction(aimBoard: finalBoard, filledBoard: startBoard)
 
     }
@@ -33,12 +39,16 @@ class SudokuViewModel: ObservableObject {
         return boardController.getBoard()
     }
     
+    func getDivideBlock() -> [[(Int,Int)]] {
+        return boardController.blockDivide
+    }
+    
     func restartSudoku() {
         boardController.reinitToBlank()
     }
     
-    func clickFiguresAction(_ figures: inout Figures) {
-        boardController.selectAction(&figures)
+    func clickFiguresAction(_ x: Int, _ y: Int) {
+        boardController.selectAction(x, y)
     }
     
     func fillFigutreAction(_ fillValue: Int) {
