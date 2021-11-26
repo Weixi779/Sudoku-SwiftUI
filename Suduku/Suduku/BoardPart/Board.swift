@@ -31,7 +31,16 @@ struct Board {
         figures.aimValue == fillValue ? figures.fontCorrect() : figures.fontWrong()
     }
     
-    mutating func boardInitBlank() {
-        board.forEach{ $0.forEach{ board[$0.x][$0.y].colorBlank() } }
+    
+    mutating func boardColorBlank(_ figures: inout Figures) {
+        figures.colorBlank()
+    }
+    
+    mutating func boardColorDeepen(_ figures: inout Figures) {
+        figures.colorHighLight()
+    }
+    
+    mutating func boardColorSelected(_ figures: inout Figures) {
+        figures.colorSelected()
     }
 }

@@ -16,9 +16,9 @@ enum FontColor: Codable {
 
 // 背景颜色分类
 enum BackgroundColor: Codable {
-    case blank      // 无背景色
-    case deepen     // 连带选择
-    case selected   // 被选择
+    case blank          // 无背景色
+    case highLight      // 连带选择
+    case selected       // 被选择
 }
 
 struct Figures: Identifiable, Codable {
@@ -53,7 +53,7 @@ struct Figures: Identifiable, Codable {
     
     mutating func colorBlank() { self.backgroundColor = .blank }
     
-    mutating func colorDeepen() { self.backgroundColor = .deepen }
+    mutating func colorHighLight() { self.backgroundColor = .highLight }
     
     mutating func colorSelected() { self.backgroundColor = .selected }
 
